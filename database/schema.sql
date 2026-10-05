@@ -1,6 +1,4 @@
--- GEAR - Sistema de gestão de oficina mecânica
--- Banco: MySQL 8.0+
--- Execute este arquivo completo no MySQL Workbench.
+
 
 SET NAMES utf8mb4;
 SET time_zone = '+00:00';
@@ -11,9 +9,6 @@ CREATE DATABASE IF NOT EXISTS gear
 
 USE gear;
 
--- ---------------------------------------------------------------------------
--- Usuários, perfis e permissões
--- ---------------------------------------------------------------------------
 
 CREATE TABLE IF NOT EXISTS perfil (
     id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
