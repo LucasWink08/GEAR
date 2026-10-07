@@ -15,6 +15,21 @@ O script pode ser executado novamente sem apagar os dados existentes. Ele cria
 o schema, as tabelas que ainda não existem, os perfis iniciais, as permissões,
 as views e os gatilhos de integridade.
 
+## Criar o usuário da aplicação
+
+Conecte-se no Workbench com um usuário administrador e execute o comando
+abaixo, substituindo a senha de exemplo por uma senha local forte:
+
+```sql
+CREATE USER IF NOT EXISTS 'gear_app'@'127.0.0.1'
+IDENTIFIED BY 'troque-pela-senha-local';
+
+GRANT ALL PRIVILEGES ON gear.* TO 'gear_app'@'127.0.0.1';
+```
+
+Use a mesma senha em `DB_PASSWORD` no arquivo `.env`. O `.env` é local e não
+deve ser enviado ao Git; o `.env.example` documenta apenas nomes e exemplos.
+
 ## Conferência rápida
 
 Depois da importação, execute:
@@ -51,4 +66,3 @@ Django. O banco permanece como última barreira para regras de integridade.
 Na etapa 2, os modelos Django serão escritos para refletir este schema. As
 migrações passarão a registrar evoluções da estrutura, e o arquivo SQL será
 mantido como a referência de criação inicial para o Workbench.
-
